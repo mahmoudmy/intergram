@@ -1,7 +1,10 @@
 import * as store from 'store'
 import io from 'socket.io-client'
 
-import { h, Component } from 'preact';
+import {
+    h,
+    Component
+} from 'preact';
 import MessageArea from './message-area';
 
 export default class Chat extends Component {
@@ -22,36 +25,61 @@ export default class Chat extends Component {
     componentDidMount() {
         this.socket = io.connect();
         this.socket.on('connect', () => {
-            this.socket.emit('register', {chatId: this.props.chatId, userId: this.props.userId });
+            this.socket.emit('register', {
+                chatId: this.props.chatId,
+                userId: this.props.userId
+            });
         });
         this.socket.on(this.props.chatId, this.incomingMessage);
-        this.socket.on(this.props.chatId+'-'+this.props.userId, this.incomingMessage);
+        this.socket.on(this.props.chatId + '-' + this.props.userId, this.incomingMessage);
 
         if (!this.state.messages.length) {
-            this.writeToMessages({text: this.props.conf.introMessage, from: 'admin'});
+            this.writeToMessages({
+                text: this.props.conf.introMessage,
+                from: 'admin'
+            });
         }
     }
 
-    render({},state) {
-        return (
-            <div>
-                <MessageArea messages={state.messages} conf={this.props.conf}/>
+    render({}, state) {
+        return ( <
+            div >
+            <
+            MessageArea messages = {
+                state.messages
+            }
+            conf = {
+                this.props.conf
+            }
+            />
 
-                <input class="textarea" type="text" placeholder={this.props.conf.placeholderText}
-                       ref={(input) => { this.input = input }}
-                       onKeyPress={this.handleKeyPress}/>
-
-                <a class="banner" href="https://github.com/idoco/intergram" target="_blank">
-                    Powered by <b>Intergram</b>&nbsp;
-                </a>
-            </div>
+            <
+            input class = "textarea"
+            type = "text"
+            placeholder = {
+                this.props.conf.placeholderText
+            }
+            ref = {
+                (input) => {
+                    this.input = input
+                }
+            }
+            onKeyPress = {
+                this.handleKeyPress
+            }
+            /> <
+            /div>
         );
     }
 
     handleKeyPress = (e) => {
         if (e.keyCode == 13 && this.input.value) {
             let text = this.input.value;
-            this.socket.send({text, from: 'visitor', visitorName: this.props.conf.visitorName});
+            this.socket.send({
+                text,
+                from: 'visitor',
+                visitorName: this.props.conf.visitorName
+            });
             this.input.value = '';
 
             if (this.autoResponseState === 'pristine') {
@@ -59,13 +87,15 @@ export default class Chat extends Component {
                 setTimeout(() => {
                     this.writeToMessages({
                         text: this.props.conf.autoResponse,
-                        from: 'admin'});
+                        from: 'admin'
+                    });
                 }, 500);
 
                 this.autoResponseTimer = setTimeout(() => {
                     this.writeToMessages({
                         text: this.props.conf.autoNoResponse,
-                        from: 'admin'});
+                        from: 'admin'
+                    });
                     this.autoResponseState = 'canceled';
                 }, 60 * 1000);
                 this.autoResponseState = 'set';

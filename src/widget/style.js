@@ -1,8 +1,7 @@
-
 export const desktopWrapperStyle = {
     position: 'fixed',
     bottom: '20px',
-    right: '20px',
+    left: '20px',
     zIndex: 2147483647,
     borderRadius: '10px',
     background: 'rgb(229, 229, 229)',
@@ -14,7 +13,7 @@ export const desktopWrapperStyle = {
 export const desktopClosedWrapperStyleChat = {
     position: 'fixed',
     bottom: '0px',
-    right: '0px',
+    left: '0px',
     zIndex: 2147483647,
     minWidth: '400px',
     boxSizing: 'content-box',
@@ -25,7 +24,7 @@ export const desktopClosedWrapperStyleChat = {
 export const mobileClosedWrapperStyle = {
     position: 'fixed',
     bottom: 18,
-    right: 18,
+    left: 18,
     zIndex: 2147483647,
     borderRadius: '50%',
     background: 'rgb(229, 229, 229)',

@@ -1,11 +1,12 @@
-
 /* An adaptation of this https://codepen.io/Varo/pen/gbZzgr */
 
-html, body {
+html,
+body {
     background: #e5e5e5;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Vazir', sans-serif;
     margin: 0 auto;
 }
+
 
 /* M E S S A G E S */
 
@@ -31,29 +32,29 @@ html, body {
 .visitor {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
-        -ms-flex-align: end;
-                -ms-grid-row-align: flex-end;
-            align-items: flex-end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
 }
 
 .visitor .msg {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
-        -ms-flex-order: 1;
-            order: 1;
-    border-bottom-right-radius: 0;
+    -ms-flex-order: 1;
+    order: 1;
+    border-bottom-left-radius: 0;
     box-shadow: 1px 2px 0 #D4D4D4;
 }
 
 .admin .msg {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
-        -ms-flex-order: 1;
-            order: 1;
+    -ms-flex-order: 1;
+    order: 1;
     border-top-left-radius: 0;
     box-shadow: -1px 2px 0 #D4D4D4;
 }
@@ -78,7 +79,7 @@ html, body {
     font-size: 0.7rem;
     color: #ccc;
     margin-top: 3px;
-    float: right;
+    float: left;
     cursor: default;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -119,6 +120,7 @@ html, body {
     height: 24px;
 }
 
+
 /* I N P U T */
 
 input.textarea {
@@ -138,7 +140,6 @@ input.textarea {
     font-weight: 400;
 }
 
-
 a.banner {
     position: fixed;
     bottom: 0;
@@ -152,7 +153,7 @@ a.banner {
     outline: none;
     color: #777;
     font-size: 10px;
-    text-align: right;
+    text-align: left;
     font-weight: 200;
     text-decoration: none
 }
